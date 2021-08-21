@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "954413046901",
+    "project_id": "capstone-cdo-hiring-app",
+    "storage_bucket": "capstone-cdo-hiring-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954413046901:android:c14f4f76f762e1ce2a6c3c",
+        "android_client_info": {
+          "package_name": "com.example.cdo_hiring_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954413046901-3gtvfk38s2otinngb66h5f5itkebde7q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cdo_hiring_app",
+            "certificate_hash": "6da1d55c7f4e115fa5459047fb768fcb12f5cd2f"
+          }
+        },
+        {
+          "client_id": "954413046901-gvan2kp89su8rpod5r4tmalnd9difsvb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJo0EPqAph3zFe14ZdaYhjDqAhjXnNc7Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "954413046901-gvan2kp89su8rpod5r4tmalnd9difsvb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

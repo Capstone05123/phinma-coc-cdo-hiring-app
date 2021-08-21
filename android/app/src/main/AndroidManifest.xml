@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cdo_hiring_app">
    <application
-        android:label="cdo_hiring_app"
+        android:label="CDO Job Hiring"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
