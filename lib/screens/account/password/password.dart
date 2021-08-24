@@ -45,7 +45,7 @@ Container textFieldPassword({
   );
   Icon _fieldMobileNumberPrefixIconStyle = Icon(
     LineIcons.lock,
-    color: Colors.black87,
+    color: Colors.black45,
     size: 22,
   );
 

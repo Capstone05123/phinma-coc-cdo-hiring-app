@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 
-Container textFieldUsername({
+Container textFieldPostCoverLetter({
   @required TextEditingController? textFieldController,
   @required FocusNode? textFieldFocusNode,
   @required bool? hasError,
@@ -44,7 +44,7 @@ Container textFieldUsername({
     fontSize: 15.0,
   );
   Icon _fieldMobileNumberPrefixIconStyle = Icon(
-    LineIcons.envelope,
+    LineIcons.edit,
     color: Colors.black45,
     size: 22,
   );
@@ -57,13 +57,16 @@ Container textFieldUsername({
       controller: textFieldController,
       inputFormatters: [LengthLimitingTextInputFormatter(255)],
       textAlign: TextAlign.left,
-      keyboardType: TextInputType.text,
+      keyboardType: TextInputType.multiline,
+      textInputAction: TextInputAction.newline,
+      maxLines: 5,
       cursorWidth: 1.0,
       decoration: InputDecoration(
-        floatingLabelBehavior: FloatingLabelBehavior.auto,
-        labelText: 'Email',
+        //floatingLabelBehavior: FloatingLabelBehavior.auto,
+        //labelText: 'Write details in straight forward',
         labelStyle: _fieldLabelStyle,
-        prefixIcon: _fieldMobileNumberPrefixIconStyle,
+        hintText: 'Keep it short and straightforward  ',
+        //prefixIcon: _fieldMobileNumberPrefixIconStyle,
         // prefixText: "+63 ",
         prefixStyle: _fieldPrefixTextStyle,
         hintStyle: _fieldHintTextStyle,

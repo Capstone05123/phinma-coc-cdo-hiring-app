@@ -1,6 +1,18 @@
 import 'package:cdo_hiring_app/screens/account/preload.dart';
 import 'package:cdo_hiring_app/screens/account/sign-in.dart';
 import 'package:cdo_hiring_app/screens/account/type-selection.dart';
+import 'package:cdo_hiring_app/screens/employee/main.dart';
+import 'package:cdo_hiring_app/screens/employee/screens/extra/open_message.dart';
+import 'package:cdo_hiring_app/screens/employee/screens/extra/open_posting.dart';
+import 'package:cdo_hiring_app/screens/employee/screens/extra/submit_proposal.dart';
+import 'package:cdo_hiring_app/screens/employer/main.dart';
+import 'package:cdo_hiring_app/screens/employer/screens/extra/contact_support.dart';
+import 'package:cdo_hiring_app/screens/employer/screens/extra/create_profile.dart';
+import 'package:cdo_hiring_app/screens/employer/screens/extra/my_postings.dart';
+import 'package:cdo_hiring_app/screens/employer/screens/extra/open_proposal.dart';
+import 'package:cdo_hiring_app/screens/employer/screens/extra/profile.dart';
+import 'package:cdo_hiring_app/screens/employer/screens/extra/reply_teamplates.dart';
+import 'package:cdo_hiring_app/screens/employer/screens/extra/send_message.dart';
 import 'package:cdo_hiring_app/screens/global/globalScreenSpinner.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,103 +27,72 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Jobhunter',
+      defaultTransition: Transition.fade,
+      transitionDuration: Duration(milliseconds: 400),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Container(),
       initialRoute: "/preload",
       getPages: [
         GetPage(title: 'Preload', name: "/preload", page: () => ScreenPreloadUserCredentials()),
         GetPage(title: 'Sign in', name: "/sign-in", page: () => ScreenSignIn()),
         GetPage(title: 'Type selection', name: "/type-selection", page: () => ScreenTypeSelection()),
         GetPage(title: 'Global spinner', name: "/global-spinner", page: () => ScreenGlobalSpinner()),
-      ],
-    );
-  }
-}
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+        //ScreenOpenProposal
+        GetPage(title: 'Employee screen', name: "/employee-main-screen", page: () => ScreenEmployeeMain()),
+        GetPage(title: 'Employer screen', name: "/employer-main-screen", page: () => ScreenEmployerMain()),
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+        ///ScreenContactSupport
+        GetPage(title: 'Proposal view-screen', name: "/proposal-view-screen", page: () => ScreenOpenProposal()),
+        GetPage(
+          title: 'Reply templates view-screen',
+          name: "/templates-view-screen",
+          page: () => ScreenReplyTemplates(),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        GetPage(
+          title: 'Profile view-screen',
+          name: "/profile-view-screen",
+          page: () => ScreenProfile(),
+        ),
+        GetPage(
+          title: 'Contact us view-screen',
+          name: "/contact-view-screen",
+          page: () => ScreenContactSupport(),
+        ),
+        GetPage(
+          title: 'My postings view-screen',
+          name: "/postings-view-screen",
+          page: () => ScreenMyPostings(),
+        ),
+        GetPage(
+          title: 'Open posting view-screen',
+          name: "/openposting-view-screen",
+          page: () => ScreenOpenPosting(),
+        ),
+        GetPage(
+          title: 'Submmit view-screen',
+          name: "/submitproposal-view-screen",
+          page: () => ScreenSubmitProposal(),
+        ),
+        GetPage(
+          title: 'Create profile view-screen',
+          name: "/createprofile-view-screen",
+          page: () => ScreenCreateProfile(),
+        ),
+        GetPage(
+          title: 'Send message view-screen',
+          name: "/sendmessageonapprove-view-screen",
+          page: () => ScreenSendApproveMessage(),
+        ),
+        GetPage(
+          title: 'Open message view-screen',
+          name: "/openmessage-view-screen",
+          page: () => ScreenOpenMessage(),
+        ),
+      ],
     );
   }
 }

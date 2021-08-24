@@ -30,116 +30,88 @@ class _ScreenSignInState extends State<ScreenSignIn> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 30.0),
-          child: Column(
-            children: [
-              Spacer(flex: 5),
-              Text(
-                "Jobhunter",
-                style: GoogleFonts.patrickHand(
-                  color: Colors.black87,
-                  fontSize: 44.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Spacer(flex: 5),
-              textFieldUsername(
-                textFieldController: _usernameController,
-                textFieldFocusNode: _usernameFocusNode,
-                hasError: false,
-              ),
-              SizedBox(height: 10.0),
-              textFieldPassword(
-                textFieldController: _passwordController,
-                textFieldFocusNode: _passwordFocusNode,
-                hasError: false,
-              ),
-              SizedBox(height: 10.0),
-              Container(
-                width: Get.width,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    padding: EdgeInsets.all(15.0),
-                    primary: Colors.blue[300],
-                    // side: BorderSide(width: 0.5, color: blue),
-                  ),
-                  onPressed: () => _accountController.signOutGoogle(),
-                  child: Text(
-                    "Log in",
-                    style: GoogleFonts.roboto(
-                      color: Colors.white,
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-              ),
-              Spacer(),
-              Row(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30.0),
+        child: Column(
+          children: [
+            Spacer(),
+            Container(
+              width: Get.width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                    child: Container(
-                        margin: EdgeInsets.only(left: 10.0, right: 20.0),
-                        child: Divider(
-                          color: Colors.black12,
-                          height: 30,
-                        )),
+                  Text(
+                    "Jobhunter",
+                    style: GoogleFonts.rancho(
+                      color: Colors.black87,
+                      fontSize: 55.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Text(
-                    "OR",
+                    "Take your career to",
                     style: GoogleFonts.roboto(
-                      color: Colors.black12,
-                      fontSize: 10.0,
-                      fontWeight: FontWeight.w300,
+                      color: Colors.black87,
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
-                  Expanded(
-                    child: Container(
-                        margin: EdgeInsets.only(left: 20.0, right: 10.0),
-                        child: Divider(
-                          color: Colors.black12,
-                          height: 30,
-                        )),
+                  Text(
+                    "the next level",
+                    style: GoogleFonts.roboto(
+                      color: Colors.black87,
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ],
               ),
-              Spacer(),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  padding: EdgeInsets.all(15.0),
-                  primary: Colors.blue[300],
-                  // side: BorderSide(width: 0.5, color: blue),
-                ),
-                onPressed: () => _handleSignInUsingGoogle(),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Log in with google",
-                      style: GoogleFonts.roboto(
-                        color: Colors.white,
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w300,
-                      ),
+            ),
+            Spacer(flex: 5),
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                padding: EdgeInsets.all(15.0),
+
+                //primary: Colors.blue[300],
+                // side: BorderSide(width: 0.5, color: blue),
+              ),
+              onPressed: () => _handleSignInUsingGoogle(),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Log in with google",
+                    style: GoogleFonts.roboto(
+                      color: Colors.black87,
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w400,
                     ),
-                    SizedBox(width: 5.0),
-                    Icon(
-                      LineIcons.googleLogo,
-                      size: 14,
-                    ),
-                  ],
+                  ),
+                  SizedBox(width: 5.0),
+                  Icon(
+                    LineIcons.googleLogo,
+                    size: 14,
+                    color: Colors.black87,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 10.0),
+              child: Text(
+                "After you sign in with your Google Account you’ll be offered two options between employer and employee, Google account must be active and valid",
+                style: GoogleFonts.roboto(
+                  color: Colors.black54,
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.w300,
                 ),
               ),
-              Spacer(),
-            ],
-          ),
+            ),
+            SizedBox(height: 50.0),
+          ],
         ),
       ),
     );

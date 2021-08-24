@@ -1,7 +1,9 @@
+import 'package:cdo_hiring_app/controllers/account/accountController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:toggle_switch/toggle_switch.dart';
+import 'package:get/get.dart';
 
 class ScreenTypeSelection extends StatefulWidget {
   const ScreenTypeSelection({Key? key}) : super(key: key);
@@ -11,6 +13,17 @@ class ScreenTypeSelection extends StatefulWidget {
 }
 
 class _ScreenTypeSelectionState extends State<ScreenTypeSelection> {
+  String selectedtype = "";
+  int _selectedTypeIndex = 0;
+
+  final _accountController = Get.put(AccountController());
+
+  _handleCreateProfile() {
+    _accountController.createProfile(
+      selectedValue: _selectedTypeIndex == 0 ? "employee" : "employer",
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -52,7 +65,7 @@ class _ScreenTypeSelectionState extends State<ScreenTypeSelection> {
               ),
               Spacer(),
               ToggleSwitch(
-                initialLabelIndex: 0,
+                initialLabelIndex: _selectedTypeIndex,
                 totalSwitches: 2,
                 fontSize: 16.0,
                 minWidth: Get.width * 0.40,
@@ -63,11 +76,14 @@ class _ScreenTypeSelectionState extends State<ScreenTypeSelection> {
                 radiusStyle: true,
                 animate: true,
                 borderWidth: 1.0,
-                activeBgColor: [Color(0xFF64B5F6)],
+                activeBgColor: [Colors.black87],
                 inactiveBgColor: Colors.white,
                 labels: ['Find a job', 'Hire people'],
                 onToggle: (index) {
-                  print('switched to: $index');
+                  setState(() {
+                    _selectedTypeIndex = index;
+                  });
+                  //
                 },
               ),
               Spacer(),
@@ -104,10 +120,10 @@ class _ScreenTypeSelectionState extends State<ScreenTypeSelection> {
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
                     padding: EdgeInsets.all(15.0),
-                    primary: Colors.blue[300],
+                    primary: Colors.black87,
                     // side: BorderSide(width: 0.5, color: blue),
                   ),
-                  onPressed: () {},
+                  onPressed: () => _handleCreateProfile(),
                   child: Text(
                     "Create my account",
                     style: GoogleFonts.roboto(

@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 
-Container textFieldUsername({
+Container textFieldPostSalary({
   @required TextEditingController? textFieldController,
   @required FocusNode? textFieldFocusNode,
   @required bool? hasError,
@@ -44,7 +44,7 @@ Container textFieldUsername({
     fontSize: 15.0,
   );
   Icon _fieldMobileNumberPrefixIconStyle = Icon(
-    LineIcons.envelope,
+    LineIcons.edit,
     color: Colors.black45,
     size: 22,
   );
@@ -57,13 +57,13 @@ Container textFieldUsername({
       controller: textFieldController,
       inputFormatters: [LengthLimitingTextInputFormatter(255)],
       textAlign: TextAlign.left,
-      keyboardType: TextInputType.text,
+      keyboardType: TextInputType.number,
       cursorWidth: 1.0,
       decoration: InputDecoration(
         floatingLabelBehavior: FloatingLabelBehavior.auto,
-        labelText: 'Email',
+        labelText: 'Salary',
         labelStyle: _fieldLabelStyle,
-        prefixIcon: _fieldMobileNumberPrefixIconStyle,
+        //prefixIcon: _fieldMobileNumberPrefixIconStyle,
         // prefixText: "+63 ",
         prefixStyle: _fieldPrefixTextStyle,
         hintStyle: _fieldHintTextStyle,
